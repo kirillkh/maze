@@ -1,4 +1,4 @@
-A generator of particular kind of puzzles. The original idea is to make something similar to "invisible ink" or watermark, i.e. to hide information in an image in such a way that:
+A generator of particular kind of puzzles. The original idea is to make something similar to "invisible ink" or some kinds of watermarking, i.e. to hide information in an image in such a way that:
 1. Even when you know that the image contains a secret, it will be hard to discover.
 2. The secret is easily recoverable by simple means.
 
