@@ -1,4 +1,3 @@
-(*#use "/home/nite/devel/maze/build.ml";;*)
 open Build;;
 open Color;;
 
