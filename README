@@ -12,7 +12,7 @@ The reason this technique works is that the user sees the resulting image as one
 
 The generator was written for a one-time use, and the code is not of a great quality. There are also many known shortcomings (such as any black pixels in the mask image will interfere with fill), which might require manual modification of the mask and/or secret in order to produce a working puzzle.
 
-The repository includes an example puzzle (image with the cake and maze on top of it).
+The repository includes an example puzzle (cake.maze.png).
 
 The source code is in OCaml. Build instructions (Linux):
 
