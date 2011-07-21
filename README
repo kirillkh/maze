@@ -1,6 +1,6 @@
 A generator of particular kind of puzzles. The original idea is to make something similar to "invisible ink" or watermark, i.e. to hide information in an image in such a way that:
 1. Even when you know that the image contains a secret, it will be hard to discover.
-2. The secret is easily decipherable by primitive means.
+2. The secret is easily recoverable by simple means.
 
 The generator accepts two images: one containing a graphical representation of secret (S) and another that will be used to mask the secret (M). The images must be of the same size. The generator combines S with M, producing the resulting image (R). S is expected to be a black-and-white image with black parts "bold" enough (technically: the algorithm needs each black sequence of pixels in a row to be at least 4-6 pixels long, and the same holds for black pixels in columns). The algorithm then splits the image into continuous areas of the same color and, for each area A, fills it with a randomly-generated maze. Mazes are built in a way that ensures that:
 1. Every maze is connected (you can get from any point in a maze to every other point in the same maze). 
