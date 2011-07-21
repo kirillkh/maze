@@ -17,6 +17,6 @@ The repository includes an example puzzle (cake.maze.png).
 The source code is in OCaml. Build instructions (Linux):
 
 1. install packages: ocaml, ocaml-findlib, libcamlimages-ocaml, libcamlimages-ocaml-dev
-2. ocamlfind ocamlc -package camlimages -linkpkg -o maze build.ml main.ml
+2. make
 
 Run instructions: OCAMLRUNPARAM=l=1M ./maze
