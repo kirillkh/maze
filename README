@@ -1,0 +1,22 @@
+A generator of particular kind of puzzles. The original idea is to make something similar to "invisible ink" or watermark, i.e. to hide information in an image in such a way that:
+1. Even when you know that the image contains a secret, it will be hard to discover.
+2. The secret is easily decipherable by primitive means.
+
+The generator accepts two images: one containing a graphical representation of secret (S) and another that will be used to mask the secret (M). The images must be of the same size. The generator combines S with M, producing the resulting image (R). S is expected to be a black-and-white image with black parts "bold" enough (technically: the algorithm needs each black sequence of pixels in a row to be at least 4-6 pixels long, and the same holds for black pixels in columns). The algorithm then splits the image into continuous areas of the same color and, for each area A, fills it with a randomly-generated maze. Mazes are built in a way that ensures that:
+1. Every maze is connected (you can get from any point in a maze to every other point in the same maze). 
+2. There is no passage from one maze to another.
+
+The resulting maze-filled black-and-white image is then layered upon M (each white pixel is treated as transparent, while each black pixel is drawn as is), and the resulting image is saved to disk.
+
+The reason this technique works is that the user sees the resulting image as one big maze and is unable to separate one little maze from the other. Furthermore, the colored mask image stands out and attracts attention, while the black maze that technically has approximately same number of pixels gets ignored by the eye as noise. The way to recover the secret is to fill the "background" maze with a color different from black, at which point the secret will magically become visible.
+
+The generator was written for a one-time use, and the code is not of a great quality. There are also many known shortcomings (such as any black pixels in the mask image will interfere with fill), which might require manual modification of the mask and/or secret in order to produce a working puzzle.
+
+The repository includes an example puzzle (image with the cake and maze on top of it).
+
+The source code is in OCaml. Build instructions (Linux):
+
+1. install packages: ocaml, ocaml-findlib, libcamlimages-ocaml, libcamlimages-ocaml-dev
+2. ocamlfind ocamlc -package camlimages -linkpkg -o maze build.ml main.ml
+
+Run instructions: OCAMLRUNPARAM=l=1M ./maze
